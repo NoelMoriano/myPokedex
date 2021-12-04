@@ -152,7 +152,8 @@ const getIdPokemon = (url) =>
     .pop();
 
 const customSpinner = () => {
-  elementImagePokemon.src = "../images/pokeball2.png";
+  elementImagePokemon.src =
+    "https://noelmoriano.github.io/myPokedex/images/pokeball2.png";
 };
 
 const mapRenderSkills = (elementRender, stats) => {
