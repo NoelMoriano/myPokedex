@@ -115,7 +115,7 @@ const getPokemon = async () => {
 
 const setEvolutionElement = (pokemon) => `
 <div class="item-img-evolution">
-<a href="../details.html?id=${pokemon.id}" class="text-center">
+<a href="../myPokedex/details.html?id=${pokemon.id}" class="text-center">
   <img
     class="img-pokemon-evolution img-responsive"
     src="${getImagePokemon(pokemon)}"
