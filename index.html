@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./js/preloader.js"></script>
+    <script src="./js/config.js"></script>
+    <title>Pokedex</title>
+  </head>
+  <body>
+    <div class="wrapper-preloader" id="preloader-container">
+      <img src="./images/general-loading2.gif" alt="loader pokemon" />
+      <button class="item-omit-preloader" id="omit-preloader">Omitir</button>
+    </div>
+
+    <div class="container-fluid text-center p-3 bg-danger">
+      <h1 class="title-pokedex">My pokedex</h1>
+    </div>
+
+    <br />
+
+    <div class="container">
+      <form id="form-search">
+        <div class="form-group mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Nombre de pokemon</label
+          >
+          <input
+            type="text"
+            id="value-search"
+            class="form-control"
+            placeholder="Ingrese nombre de pokemon"
+          />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" id="btn-search">
+            Buscar
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <br />
+
+    <div class="container">
+      <div
+        class="d-flex justify-content-center mt-2 mb-4 visible"
+        id="element-spinner"
+      >
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <ul class="list-group" id="list-pokemons"></ul>
+    </div>
+
+    <br />
+
+    <div class="container mt-1 mb-5">
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-outline-primary btn-md" id="btn-more-pokemons">
+            Ver más...
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="./js/utils.js"></script>
+    <script src="./js/searchPokemon.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/morePokemons.js"></script>
+  </body>
+</html>

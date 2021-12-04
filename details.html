@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle pokemon</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./js/config.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid text-center p-3 bg-danger">
+      <div class="row">
+        <div class="col-4 wrapper-go-back">
+          <a class="item-go-back" onclick="location.href='./index.html'">
+            <i class="fa fa-arrow-circle-left"></i>
+          </a>
+        </div>
+        <div class="col-4"><h1 class="title-pokedex">Información</h1></div>
+        <div class="col-4"></div>
+      </div>
+    </div>
+
+    <div class="container wrapper-image-detail">
+      <div class="row f-flex justify-content-center">
+        <img
+          class="img-responsive img-pokemon"
+          id="detail-image-pokemon"
+          src="./images/pokeball.png"
+          alt="pokemon"
+        />
+      </div>
+    </div>
+
+    <div class="container d-flex flex-center justify-content-center">
+      <div class="row p-2">
+        <div
+          class="card card-pokemon-detail bg-secondary-custom"
+          style="width: 100%"
+        >
+          <div class="card-body">
+            <h3 class="card-title" id="detail-name-pokemon">No found</h5>
+            <p class="card-text" id="detail-description-pokemon">
+              No existen datos sobre este pokemon
+            </p>
+            <h6 class="detail-type-pokemon" id="detail-type-pokemon">
+              <span class="color-black"> Tipo: </span>
+            </h6>
+          </div>
+
+          <ul
+            class="d-flex p-0 justify-content-center flex-wrap list-stats"
+            id="detail-list-stats"
+          ></ul>
+
+          <div class="card-body" id="container-evolutions">
+            <h5 class="text-center">Evoluciones</h5>
+            <div
+              class="wrapper-evolutions d-flex justify-content-center flex-wrap"
+              id="list-evolutions"
+            ></div>
+          </div>
+
+          <div class="row p-3">
+            <a onclick="print()" class="card-link color-darken element-link"
+              >Capturar pokemon</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="wrapper-icons-pagination d-flex justify-content-center">
+          <a class="item-icon color-darken" id="icon-prev">
+            <i class="fa fa-arrow-circle-left"></i>
+          </a>
+          <a class="item-icon color-darken" id="icon-next">
+            <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="./js/utils.js"></script>
+    <script src="./js/details.js"></script>
+    <script src="./js/pagination.js"></script>
+  </body>
+</html>
