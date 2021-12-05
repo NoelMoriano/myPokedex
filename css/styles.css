@@ -9,6 +9,7 @@ body {
   min-width: 100vw;
   width: 100%;
   height: auto;
+  font-size: 16px;
 }
 
 .wrapper-preloader {
@@ -54,9 +55,16 @@ body {
   object-fit: cover;
 }
 
+.wrapper-title-pokedex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .title-pokedex {
   color: white;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .wrapper-pokemon-types {
@@ -227,15 +235,23 @@ body {
 }
 
 .wrapper-image-detail .img-pokemon {
-  width: 20em;
+  width: 17em;
   height: auto;
   object-fit: contain;
   -webkit-filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
   -webkit-filter: drop-shadow(0 2px 5px hsla(0, 0%, 100%, 0.9));
   filter: drop-shadow(0 2px 5px rgba(255, 255, 255, 0.9));
-  margin-bottom: -4.5rem;
+  margin-bottom: -3rem;
+  margin-top: 1rem;
   z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .wrapper-image-detail .img-pokemon {
+    width: 15em;
+    margin-bottom: -0.5rem;
+  }
 }
 
 .list-stats div li {
@@ -278,8 +294,14 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
+.wrapper-icons-pagination {
+  position: fixed;
+  bottom: 2%;
+  right: 3%;
+}
+
 .item-icon {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin: 0 0.4rem;
   cursor: pointer;
 }
@@ -300,6 +322,7 @@ body {
   margin: 0 0.4rem;
   cursor: pointer;
   color: white;
+  transition: all 0.2s ease-in-out;
 }
 
 .wrapper-go-back .item-go-back:hover {
