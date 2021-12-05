@@ -390,6 +390,15 @@ body {
   margin-top: 5rem;
   z-index: 999;
 }
+
+@media (max-width: 767px) {
+  .wrapper_pokeball_loading {
+    width: 9em;
+    height: 9em;
+    margin-bottom: -1rem;
+  }
+}
+
 .wrapper_pokeball_loading::before,
 .wrapper_pokeball_loading::after {
   content: "";
