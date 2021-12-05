@@ -1,3 +1,7 @@
+const elementCardPokemonDetail = document.querySelector("#card-pokemon-detail");
+const elementLoadingImagePokemon = document.querySelector(
+  "#wrapper-loading-pokemon"
+);
 const elementImagePokemon = document.querySelector("#detail-image-pokemon");
 const elementNamePokemon = document.querySelector("#detail-name-pokemon");
 const elementDescriptionPokemon = document.querySelector(
@@ -17,15 +21,33 @@ let EVOLUTIONS_POKEMONS = [];
 
 const getPokemon = async () => {
   try {
-    customSpinner();
-
     //FETCH POKEMON
     const pokemon = await fetchPokemon(`${config.apiUrl}/pokemon/${pokemonId}`);
 
     console.log("pokemon->", pokemon);
 
+    //VALIDATE POKEMON exits
+    if (!pokemon) {
+      elementImagePokemon.src = "./images/pokemon-no-found.png";
+      elementImagePokemon.style.width = "10em";
+      elementCardPokemonDetail.innerHTML = `<br/><h4>Lo sentimos no se encontro el pokemon...</h4>`;
+      elementImagePokemon.classList.remove("none");
+      return loadingPokemon();
+    }
+
     //SET IMAGE POKEMON
-    elementImagePokemon.src = getImagePokemon(pokemon, "large");
+    setTimeout(() => {
+      console.log("loading->", getImagePokemon(pokemon, "large"));
+      if (getImagePokemon(pokemon, "large")) {
+        elementImagePokemon.src = getImagePokemon(pokemon, "large");
+        elementImagePokemon.classList.remove("none");
+      } else {
+        elementImagePokemon.src = "./images/pokeball2.png";
+        elementImagePokemon.classList.remove("none");
+      }
+
+      loadingPokemon();
+    }, 2000);
 
     if (pokemon.id > config.serverSerebi.maxPokemons) {
       elementImagePokemon.classList.add("image-pixelated");
@@ -151,9 +173,8 @@ const getIdPokemon = (url) =>
     .filter((url) => url)
     .pop();
 
-const customSpinner = () => {
-  elementImagePokemon.src =
-    "https://noelmoriano.github.io/myPokedex/images/pokeball2.png";
+const loadingPokemon = () => {
+  elementLoadingImagePokemon.classList.add("none");
 };
 
 const mapRenderSkills = (elementRender, stats) => {

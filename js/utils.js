@@ -114,10 +114,12 @@ const getDescription = (pokemon, languageCode) => {
 
 //GET IMAGE POKEMON
 const getImagePokemon = (pokemon, sizeImage = "small") => {
+  if (!pokemon) return null;
+
   if (pokemon.id > config.serverSerebi.maxPokemons) {
     return pokemon.detail.sprites.front_default
       ? pokemon.detail.sprites.front_default
-      : "./myPokedex/images/pokeball2.png";
+      : "./images/pokeball2.png";
   }
 
   const _sizeImage = sizeImage === "small" ? "urlImgSmall" : "urlImgLarge";

@@ -22,6 +22,7 @@
     <script src="./js/config.js"></script>
   </head>
   <body>
+    <img src="./images/aqua_maker.png" alt="icon pokemon" class="image-aqua-marker-detail"/>
     <div class="container-fluid text-center p-3 bg-danger">
       <div class="row">
         <div class="col-2 wrapper-go-back">
@@ -29,7 +30,7 @@
             <i class="fa fa-arrow-circle-left"></i>
           </a>
         </div>
-        <div class="col-8 wrapper-title-pokedex"><h1 class="title-pokedex">Información</h1></div>
+        <div class="col-8 wrapper-title-pokedex"><h1 class="title-pokedex">Detalle</h1></div>
         <div class="col-2"></div>
       </div>
     </div>
@@ -37,11 +38,16 @@
     <div class="container wrapper-image-detail">
       <div class="row f-flex justify-content-center">
         <img
-          class="img-responsive img-pokemon"
+          class="img-responsive img-pokemon none"
           id="detail-image-pokemon"
-          src="https://noelmoriano.github.io/myPokedex/images/pokeball.png"
+          src="./images/pokeball2.png"
           alt="pokemon"
         />
+  
+          <div class="wrapper_pokeball_loading visible" id="wrapper-loading-pokemon">
+            <div class="pokeball_loading"></div>
+          </div>
+        
       </div>
     </div>
 
@@ -49,6 +55,7 @@
       <div class="row p-2">
         <div
           class="card card-pokemon-detail bg-secondary-custom"
+          id="card-pokemon-detail"
           style="width: 100%"
         >
           <div class="card-body">
@@ -93,6 +100,7 @@
           </a>
         </div>
     
+      
 
     <script src="./js/utils.js"></script>
     <script src="./js/details.js"></script>
