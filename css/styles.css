@@ -84,6 +84,12 @@ body {
   background: rgb(201, 10, 10);
 }
 
+@media (max-width: 768px) {
+  .wrapper-preloader .item-omit-preloader {
+    bottom: 3.3rem;
+  }
+}
+
 .image-pixelated {
   image-rendering: pixelated;
 }
