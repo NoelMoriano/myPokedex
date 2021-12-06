@@ -3,7 +3,7 @@ const elementIconTheme = document.querySelector("#icon-theme");
 
 elementCheckboxTheme.addEventListener("click", () => {
   if (elementCheckboxTheme.checked === true) {
-    document.body.style.background = "url('../images/aqua_maker2.png')";
+    document.body.style.background = "url('./images/aqua_maker2.png')";
     document.body.style.color = "#e5e5e5";
     elementIconTheme.src = "./images/moon.png";
   } else {
