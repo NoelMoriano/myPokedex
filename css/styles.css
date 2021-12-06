@@ -86,7 +86,8 @@ body {
 
 @media (max-width: 768px) {
   .wrapper-preloader .item-omit-preloader {
-    bottom: 3.3rem;
+    right: 2rem;
+    bottom: 4rem;
   }
 }
 
