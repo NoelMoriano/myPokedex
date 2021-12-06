@@ -62,7 +62,7 @@ const activeSpinnerInButton = (
 
 //*****MAP RENDER POKEMON*****
 const renderPokemonInfo = (pokemonInfo) => {
-  listPokemons.innerHTML += `
+  elementListPokemons.innerHTML += `
         <li class="item-list d-flex ${colorType(
           pokemonInfo.detail.types[0].type.name
         )}">

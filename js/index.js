@@ -1,5 +1,6 @@
-const listPokemons = document.querySelector("#list-pokemons");
+const elementListPokemons = document.querySelector("#list-pokemons");
 const elementSpinner = document.querySelector("#element-spinner");
+const elementAmountPokemons = document.querySelector("#amount-pokemons");
 
 let amountPokemons = 60;
 
@@ -11,7 +12,7 @@ const initialApp = async (urlPagination) => {
     isVisibleSpinner(elementSpinner);
 
     //Reset list HTML
-    listPokemons.innerHTML = "";
+    elementListPokemons.innerHTML = "";
 
     //Get all pokemons
     dataPokemons = await fetchApi(
@@ -28,11 +29,9 @@ const initialApp = async (urlPagination) => {
     //Resolve promises info pokemon
     const resultPokemonsWithInfo = await Promise.all(returnPokemonsWithInfo);
 
-    console.log("resultPokemonsWithInfo->", resultPokemonsWithInfo);
-
     //Validate isEmpty resultPokemonsWithInfo
     if (!resultPokemonsWithInfo) {
-      return (listPokemons.innerHTML = `<h3>No existen datos disponibles<h3/>`);
+      return (elementListPokemons.innerHTML = `<h3>No existen datos disponibles<h3/>`);
     }
 
     //Order by id
@@ -40,16 +39,16 @@ const initialApp = async (urlPagination) => {
       .filter((pokemon) => pokemon)
       .sort((a, b) => a.id - b.id);
 
-    isVisibleSpinner(elementSpinner, false);
-
     //Render info pokemon
     viewPokemons.map((pokemon) => {
       renderPokemonInfo(pokemon);
     });
+
+    elementAmountPokemons.textContent = viewPokemons.length || 0;
   } catch (e) {
     console.error(e);
 
-    return (listPokemons.innerHTML =
+    return (elementListPokemons.innerHTML =
       "<h3>Lo sentimos, ocurrio un error, vuelva a ingresar mas tarde...</h3>");
   } finally {
     isVisibleSpinner(elementSpinner, false);

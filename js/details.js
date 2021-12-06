@@ -24,8 +24,6 @@ const getPokemon = async () => {
     //FETCH POKEMON
     const pokemon = await fetchPokemon(`${config.apiUrl}/pokemon/${pokemonId}`);
 
-    console.log("pokemon->", pokemon);
-
     //VALIDATE POKEMON exits
     if (!pokemon) {
       elementImagePokemon.src = "./images/pokemon-no-found.png";
@@ -37,7 +35,6 @@ const getPokemon = async () => {
 
     //SET IMAGE POKEMON
     setTimeout(() => {
-      console.log("loading->", getImagePokemon(pokemon, "large"));
       if (getImagePokemon(pokemon, "large")) {
         elementImagePokemon.src = getImagePokemon(pokemon, "large");
         elementImagePokemon.classList.remove("none");
@@ -47,7 +44,7 @@ const getPokemon = async () => {
       }
 
       loadingPokemon();
-    }, 2000);
+    }, 1700);
 
     if (pokemon.id > config.serverSerebi.maxPokemons) {
       elementImagePokemon.classList.add("image-pixelated");
@@ -83,8 +80,6 @@ const getPokemon = async () => {
       elementContainerEvolutions.classList.add("none");
     } else {
       getAllEvolutionsPokemon(pokemon.evolutions.chain);
-
-      console.log("EVOLUTIONS_POKEMONS->", EVOLUTIONS_POKEMONS);
 
       const getEvolutionsPokemon = EVOLUTIONS_POKEMONS.map(
         async (pokemonIds) => {
@@ -215,7 +210,6 @@ const setBackgroundBody = (pokemonTypes) => {
     case 2: {
       const colorOne = pokemonTypes[0].color_solid;
       const colorTwo = pokemonTypes[1].color_solid;
-      console.log("colors->", colorOne, colorTwo);
       elementBody.background = `linear-gradient(to right top, ${colorOne}, ${colorTwo})`;
       break;
     }

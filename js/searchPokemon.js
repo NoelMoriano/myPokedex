@@ -16,10 +16,10 @@ formSearch.addEventListener("submit", async (e) => {
       const response = await fetch(`${config.apiUrl}/pokemon/${valueSearch}`);
 
       if (!response.ok) {
-        return (listPokemons.innerHTML = `<h3>No se encontro "${valueSearch}", intente con otro nombre o id por favor...</h3>`);
+        return (elementListPokemons.innerHTML = `<h3>No se encontro "${valueSearch}", intente con otro nombre o id por favor...</h3>`);
       }
 
-      listPokemons.innerHTML = "";
+      elementListPokemons.innerHTML = "";
 
       const pokemonDetails = await response.json();
 
@@ -42,15 +42,21 @@ formSearch.addEventListener("submit", async (e) => {
       console.log("pokemonInfoSearch->", pokemonInfo);
 
       renderPokemonInfo(pokemonInfo);
+
+      elementAmountPokemons.textContent = 1;
     } else {
       initialApp();
     }
   } catch (e) {
     console.error(e);
 
-    return (listPokemons.innerHTML =
+    return (elementListPokemons.innerHTML =
       "<h3>Ocurrio un error, intentelo mas tarde</h3>");
   } finally {
-    activeSpinnerInButton(btnSearch, false, "Buscar");
+    activeSpinnerInButton(
+      btnSearch,
+      false,
+      `<i class="fa fa-search"></i> Buscar`
+    );
   }
 });

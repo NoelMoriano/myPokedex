@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("./colors.css");
 
 *,
@@ -19,6 +20,7 @@ body {
   height: auto;
   font-size: 16px;
   position: relative;
+  font-family: "Roboto", sans-serif;
 }
 
 .image-aqua-marker-home {
@@ -64,8 +66,8 @@ body {
 .wrapper-preloader .item-omit-preloader {
   margin: auto;
   position: absolute;
-  right: 2rem;
-  bottom: 1.5rem;
+  right: 3rem;
+  bottom: 2.2rem;
   background: red;
   padding: 0.7rem 2rem;
   width: auto;
@@ -92,16 +94,63 @@ body {
   object-fit: cover;
 }
 
-.wrapper-title-pokedex {
+.title-pokedex {
+  color: white;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.wrapper-icon-theme {
+  background: #fff;
+  width: 35px;
+  height: 35px;
+  margin: auto;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.title-pokedex {
-  color: white;
-  text-transform: uppercase;
-  margin: 0;
+.icon-theme {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  padding: 0.4rem;
+  height: auto;
+  cursor: pointer;
+}
+
+.form-label {
+  margin-bottom: 0.2rem;
+  margin-left: 0.3rem;
+}
+
+.input-search-form {
+  border-radius: 3rem;
+  padding: 0.7rem 1.6rem;
+  font-size: 1.2rem;
+  border: 2px solid #d0d9ea;
+  transition: all ease-in-out 0.2s;
+}
+
+@media (max-width: 767px) {
+  .input-search-form {
+    font-size: 1.1rem;
+  }
+}
+
+.input-search-form:hover {
+  transition: all ease-in-out 0.2s;
+  border: 2px solid #6fa1ffb6;
+}
+
+.input-search-form:focus {
+  transition: all ease-in-out 0.2s;
+  border: 2px solid #6fa1ffb6;
+}
+
+.btn-form-search {
+  padding: 0.5rem 2rem;
 }
 
 .wrapper-pokemon-types {
@@ -112,12 +161,35 @@ body {
   align-items: center;
 }
 
+.wrapper-amount-pokemons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 1.5rem auto 1rem auto;
+  padding: 0 1.5rem;
+  color: #9b9b9b;
+  font-weight: 400;
+}
+
+.wrapper-amount-pokemons .txt-amount-pokemons:first-child {
+  font-size: 0.9em;
+}
+.wrapper-amount-pokemons .txt-amount-pokemons:last-child {
+  font-size: 1em;
+  font-weight: 500;
+}
+
 .item-type {
   padding: 5px;
   border-radius: 5px;
   margin: 3px;
   color: rgba(0, 0, 0, 0.7);
   text-transform: capitalize;
+}
+
+.btn-more-pokemons {
+  padding: 0.3rem 2rem;
+  font-size: 1.1rem;
 }
 
 /****UTILS*****/
@@ -275,6 +347,8 @@ body {
 .wrapper-image-detail {
   display: flex;
   justify-content: center;
+  width: auto;
+  height: 15em;
 }
 
 .wrapper-image-detail .img-pokemon {
@@ -285,7 +359,7 @@ body {
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
   -webkit-filter: drop-shadow(0 2px 5px hsla(0, 0%, 100%, 0.9));
   filter: drop-shadow(0 2px 5px rgba(255, 255, 255, 0.9));
-  margin-bottom: -3rem;
+  margin-bottom: -4rem;
   margin-top: 1rem;
   z-index: 999;
 }

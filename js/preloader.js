@@ -1,4 +1,4 @@
-window.addEventListener("load", (e) => {
+window.addEventListener("load", () => {
   const elementPreloaderContainer = document.querySelector(
     "#preloader-container"
   );
@@ -12,4 +12,6 @@ window.addEventListener("load", (e) => {
   setTimeout(() => {
     elementPreloaderContainer.classList.add("none");
   }, 9000);
+
+  window.scrollTo(0, 0);
 });
