@@ -6,13 +6,22 @@ window.addEventListener("load", () => {
   //change theme
   const theme = localStorage.getItem("theme");
 
-  themeDefault(theme);
+  if (theme) {
+    themeDefault(theme);
+  } else {
+    themeDefault("light");
+  }
 
   // Change image type
   const imageType = localStorage.getItem("imageType");
-  imageType === "2d"
-    ? elementBtnRadio1.classList.add("checked")
-    : elementBtnRadio2.classList.add("checked");
+
+  if (imageType) {
+    imageType === "2d"
+      ? elementBtnRadio1.setAttribute("checked", true)
+      : elementBtnRadio2.setAttribute("checked", true);
+  } else {
+    localStorage.setItem("imageType", "3d");
+  }
 
   // onclick omit
   const elementOmitPreloader = document.querySelector("#omit-preloader");

@@ -16,7 +16,7 @@ elementBtnRadio2.addEventListener("click", () => {
 });
 
 const onClickCheckedAdd = (elementBtnRadio) =>
-  elementBtnRadio.classList.add("checked");
+  elementBtnRadio.setAttribute("checked", true);
 
 const onClickCheckedRemove = (elementBtnRadio) =>
-  elementBtnRadio.classList.remove("checked");
+  elementBtnRadio.setAttribute("checked", false);

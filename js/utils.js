@@ -117,7 +117,7 @@ const getDescription = (pokemon, languageCode) => {
 };
 
 //GET IMAGE POKEMON
-const getImagePokemon = (pokemon, sizeImage = "small", imageType = "2d") => {
+const getImagePokemon = (pokemon, sizeImage = "small", imageType = "3d") => {
   if (!pokemon) return null;
 
   let serverImageApi = config.serverSerebi;
