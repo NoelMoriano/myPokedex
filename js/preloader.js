@@ -18,9 +18,11 @@ window.addEventListener("load", () => {
   if (imageType) {
     imageType === "2d"
       ? elementBtnRadio1.setAttribute("checked", true)
-      : elementBtnRadio2.setAttribute("checked", true);
+      : elementBtnRadio2.removeAttribute("checked");
   } else {
     localStorage.setItem("imageType", "3d");
+    elementBtnRadio1.removeAttribute("checked");
+    elementBtnRadio2.setAttribute("checked", true);
   }
 
   // onclick omit

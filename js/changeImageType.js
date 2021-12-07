@@ -19,4 +19,4 @@ const onClickCheckedAdd = (elementBtnRadio) =>
   elementBtnRadio.setAttribute("checked", true);
 
 const onClickCheckedRemove = (elementBtnRadio) =>
-  elementBtnRadio.setAttribute("checked", false);
+  elementBtnRadio.removeAttribute("checked");
