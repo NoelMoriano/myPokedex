@@ -16,30 +16,29 @@ formSearch.addEventListener("submit", async (e) => {
       const response = await fetch(`${config.apiUrl}/pokemon/${valueSearch}`);
 
       if (!response.ok) {
+        elementAmountPokemons.textContent = 0;
+        elementListPokemons.style.display = "flex";
         return (elementListPokemons.innerHTML = `<h3>No se encontro "${valueSearch}", intente con otro nombre o id por favor...</h3>`);
       }
 
       elementListPokemons.innerHTML = "";
+      elementListPokemons.style.display = "grid";
 
-      const pokemonDetails = await response.json();
+      const pokemonDetail = await response.json();
 
-      const pokemonSpecies = await fetchApi(
-        `${config.apiUrl}pokemon-species/${pokemonDetails.id}/`
-      );
+      const pokemonSpecies = await fetchApi(pokemonDetail.species.url);
 
       const pokemonEvolutions = await fetchApi(
-        `${config.apiUrl}evolution-chain/${pokemonDetails.id}/`
+        pokemonSpecies.evolution_chain.url
       );
 
       pokemonInfo = {
-        id: pokemonDetails.id,
-        name: pokemonDetails.name,
-        detail: pokemonDetails,
+        id: pokemonDetail.id,
+        name: pokemonDetail.name,
+        detail: pokemonDetail,
         species: pokemonSpecies,
         evolutions: pokemonEvolutions,
       };
-
-      console.log("pokemonInfoSearch->", pokemonInfo);
 
       renderPokemonInfo(pokemonInfo);
 
@@ -49,6 +48,8 @@ formSearch.addEventListener("submit", async (e) => {
     }
   } catch (e) {
     console.error(e);
+
+    elementListPokemons.style.display = "flex";
 
     return (elementListPokemons.innerHTML =
       "<h3>Ocurrio un error, intentelo mas tarde</h3>");

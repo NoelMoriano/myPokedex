@@ -10,18 +10,18 @@ const fetchApi = async (url) => {
 
 //*****FETCH POKEMON SINGLE*****
 const fetchPokemon = async (pokemonUrl) => {
-  const pokemonDetails = await fetchApi(pokemonUrl);
+  const pokemonDetail = await fetchApi(pokemonUrl);
 
-  if (!pokemonDetails) return null;
+  if (!pokemonDetail) return null;
 
-  const pokemonSpecies = await fetchApi(pokemonDetails.species.url);
+  const pokemonSpecies = await fetchApi(pokemonDetail.species.url);
 
   const pokemonEvolutions = await fetchApi(pokemonSpecies.evolution_chain.url);
 
   return {
-    id: pokemonDetails.id,
-    name: pokemonDetails.name,
-    detail: pokemonDetails,
+    id: pokemonDetail.id,
+    name: pokemonDetail.name,
+    detail: pokemonDetail,
     species: pokemonSpecies,
     evolutions: pokemonEvolutions,
   };
@@ -117,8 +117,8 @@ const getImagePokemon = (pokemon, sizeImage = "small") => {
   if (!pokemon) return null;
 
   if (pokemon.id > config.serverSerebi.maxPokemons) {
-    return pokemon.detail.sprites.front_default
-      ? pokemon.detail.sprites.front_default
+    return pokemon.sprites.front_default
+      ? pokemon.sprites.front_default
       : "./images/pokeball2.png";
   }
 
@@ -133,5 +133,18 @@ const getImagePokemon = (pokemon, sizeImage = "small") => {
     return `${urlImageExtended}/0${pokemon.id}.png`;
   } else {
     return `${urlImageExtended}/${pokemon.id}.png`;
+  }
+};
+
+//CHANGE THEME
+const themeDefault = (theme = "light") => {
+  if (theme === "light") {
+    document.body.style.background = "rgba(0, 0, 0, 0.02)";
+    document.body.style.color = "rgb(94 94 94)";
+    elementIconTheme.src = "./images/sun.png";
+  } else {
+    document.body.style.background = "url('./images/aqua_maker2.png')";
+    document.body.style.color = "#e5e5e5";
+    elementIconTheme.src = "./images/moon.png";
   }
 };

@@ -3,6 +3,10 @@ window.addEventListener("load", () => {
     "#preloader-container"
   );
 
+  const theme = localStorage.getItem("theme");
+
+  themeDefault(theme);
+
   const elementOmitPreloader = document.querySelector("#omit-preloader");
 
   elementOmitPreloader.addEventListener("click", () => {
