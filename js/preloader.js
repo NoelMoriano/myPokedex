@@ -16,9 +16,13 @@ window.addEventListener("load", () => {
   const imageType = localStorage.getItem("imageType");
 
   if (imageType) {
-    imageType === "2d"
-      ? elementBtnRadio1.setAttribute("checked", true)
-      : elementBtnRadio2.removeAttribute("checked");
+    if (imageType === "2d") {
+      elementBtnRadio1.setAttribute("checked", true);
+      elementBtnRadio2.removeAttribute("checked");
+    } else {
+      elementBtnRadio2.setAttribute("checked", true);
+      elementBtnRadio1.removeAttribute("checked");
+    }
   } else {
     localStorage.setItem("imageType", "3d");
     elementBtnRadio1.removeAttribute("checked");
