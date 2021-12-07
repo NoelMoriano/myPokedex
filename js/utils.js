@@ -70,7 +70,11 @@ const renderPokemonInfo = (pokemonInfo) => {
           <div class="m-3">
             <a href="../myPokedex/details.html?id=${pokemonInfo.detail.id}"
               ><img
-                src="${getImagePokemon(pokemonInfo.detail)}"
+                src="${getImagePokemon(
+                  pokemonInfo.detail,
+                  "small",
+                  localStorage.getItem("imageType")
+                )}"
                 alt="pokemon"
                 class="img-pokemon-list"
                 id="img-pokemon-${pokemonInfo.id}"
@@ -113,10 +117,17 @@ const getDescription = (pokemon, languageCode) => {
 };
 
 //GET IMAGE POKEMON
-const getImagePokemon = (pokemon, sizeImage = "small") => {
+const getImagePokemon = (pokemon, sizeImage = "small", imageType = "2d") => {
   if (!pokemon) return null;
 
-  if (pokemon.id > config.serverSerebi.maxPokemons) {
+  let serverImageApi = config.serverSerebi;
+
+  if (imageType) {
+    serverImageApi =
+      imageType === "2d" ? config.serverPokemonPuntoCom : config.serverSerebi;
+  }
+
+  if (pokemon.id > serverImageApi["maxPokemons"]) {
     return pokemon.sprites.front_default
       ? pokemon.sprites.front_default
       : "./images/pokeball2.png";
@@ -124,7 +135,7 @@ const getImagePokemon = (pokemon, sizeImage = "small") => {
 
   const _sizeImage = sizeImage === "small" ? "urlImgSmall" : "urlImgLarge";
 
-  const urlImageExtended = config.serverSerebi[_sizeImage];
+  const urlImageExtended = serverImageApi[_sizeImage];
 
   if (pokemon.id < 10) {
     return `${urlImageExtended}/00${pokemon.id}.png`;

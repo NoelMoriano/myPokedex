@@ -35,8 +35,18 @@ const getPokemon = async () => {
 
     //SET IMAGE POKEMON
     setTimeout(() => {
-      if (getImagePokemon(pokemon.detail, "large")) {
-        elementImagePokemon.src = getImagePokemon(pokemon.detail, "large");
+      if (
+        getImagePokemon(
+          pokemon.detail,
+          "large",
+          localStorage.getItem("imageType")
+        )
+      ) {
+        elementImagePokemon.src = getImagePokemon(
+          pokemon.detail,
+          "large",
+          localStorage.getItem("imageType")
+        );
         elementImagePokemon.classList.remove("none");
       } else {
         elementImagePokemon.src = "./images/pokeball2.png";
@@ -135,7 +145,11 @@ const setEvolutionElement = (pokemon) => `
 <a href="../myPokedex/details.html?id=${pokemon.id}" class="text-center">
   <img
     class="img-pokemon-evolution img-responsive"
-    src="${getImagePokemon(pokemon.detail)}"
+    src="${getImagePokemon(
+      pokemon.detail,
+      "small",
+      localStorage.getItem("imageType")
+    )}"
     alt="pokemon"
 /></a>
 <h6 class="text-center name-pokemon">${pokemon.name}</h6>

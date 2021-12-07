@@ -82,7 +82,33 @@
 
     <div class="container wrapper-amount-pokemons">
       <div class="row">
-        <div class="col-12">
+        <div class="col-6 d-flex align-items-center justify-content-center">
+          <div
+            class="btn-group btn-group-sm"
+            role="group"
+            aria-label="Basic radio toggle button group"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio1"
+              autocomplete="off"
+              checked
+            />
+            <label class="btn btn-outline-primary" for="btnradio1">2D</label>
+
+            <input
+              type="radio"
+              class="btn-check"
+              name="btnradio"
+              id="btnradio2"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-primary" for="btnradio2">3D</label>
+          </div>
+        </div>
+        <div class="col-6 d-flex align-items-center justify-content-center">
           <span class="txt-amount-pokemons">Cantidad:</span>
           <span class="txt-amount-pokemons" id="amount-pokemons">100</span>
         </div>
@@ -122,5 +148,6 @@
     <script src="./js/index.js"></script>
     <script src="./js/morePokemons.js"></script>
     <script src="./js/changeTheme.js"></script>
+    <script src="./js/changeImageType.js"></script>
   </body>
 </html>
