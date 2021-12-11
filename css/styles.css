@@ -297,6 +297,12 @@ body {
 
 /***DETAIL POKEMON***/
 
+.wrapper-title-pokedex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card-pokemon-detail {
   border-radius: 1.3rem;
   border: none;
@@ -529,7 +535,7 @@ body {
   padding: 1rem;
   background: radial-gradient(
     circle at 50% 50%,
-    rgb(255 255 255 / 60%) 0%,
+    rgb(255 255 255 / 24%) 0%,
     rgb(255 255 255 / 0%) 52%,
     rgb(255 255 255 / 0%) 100%
   );

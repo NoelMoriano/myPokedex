@@ -8,8 +8,8 @@ const setDataChart = (dataStats, colorType) => {
       "HP",
       "ATAQUE",
       "DEFENSA",
-      "ESPECIAL ATAQUE",
-      "ESPECIAL DEFENSA",
+      "ATAQUE ESPECIAL",
+      "DEFENSA ESPECIAL",
       "VELOCIDAD",
     ],
     datasets: [
