@@ -50,11 +50,9 @@
           src="./images/pokeball2.png"
           alt="pokemon"
         />
-  
           <div class="wrapper_pokeball_loading visible" id="wrapper-loading-pokemon">
             <div class="pokeball_loading"></div>
           </div>
-        
       </div>
     </div>
 
@@ -80,13 +78,20 @@
             id="detail-list-stats"
           ></ul>
 
-          <div class="card-body" id="container-evolutions">
-            <h5 class="text-center">Evoluciones</h5>
-            <div
-              class="wrapper-evolutions d-flex justify-content-center flex-wrap"
-              id="list-evolutions"
-            ></div>
+          <!---***USE CHART***---->
+          <div class="container-stats">
+            <div class="container-chart">
+              <canvas id="myChart"></canvas>
+            </div>
+            <div class="container-evolutions" id="container-evolutions">
+              <h5 class="text-center">Evoluciones</h5>
+              <div
+                class="wrapper-evolutions d-flex justify-content-center flex-wrap"
+                id="list-evolutions"
+              ></div>
+            </div>
           </div>
+        
 
           <div class="row p-3">
             <a onclick="print()" class="card-link color-darken element-link"
@@ -110,7 +115,10 @@
       
 
     <script src="./js/utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/myChartStats.js"></script>
     <script src="./js/details.js"></script>
     <script src="./js/pagination.js"></script>
+    
   </body>
 </html>

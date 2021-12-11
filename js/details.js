@@ -54,7 +54,7 @@ const getPokemon = async () => {
       }
 
       loadingPokemon();
-    }, 1700);
+    }, 1500);
 
     if (pokemon.id > config.serverSerebi.maxPokemons) {
       elementImagePokemon.classList.add("image-pixelated");
@@ -80,7 +80,12 @@ const getPokemon = async () => {
       true
     );
 
-    mapRenderSkills(elementListStats, pokemon.detail.stats);
+    mapRenderStats(elementListStats, pokemon.detail.stats);
+
+    setDataChart(
+      getStatsForChart(pokemon.detail.stats),
+      pokemon.detail.types[0].type
+    );
 
     //VALIDATE AND SET EVOLUTIONS POKEMON
     if (
@@ -186,7 +191,7 @@ const loadingPokemon = () => {
   elementLoadingImagePokemon.classList.add("none");
 };
 
-const mapRenderSkills = (elementRender, stats) => {
+const mapRenderStats = (elementRender, stats) => {
   return stats.map(({ base_stat, stat }) => {
     const statConfig_ = statsConfig[stat.name] || {};
 
@@ -241,5 +246,7 @@ const setBackgroundBody = (pokemonTypes) => {
     }
   }
 };
+
+const getStatsForChart = (stats) => stats.map((stat) => stat.base_stat);
 
 getPokemon();

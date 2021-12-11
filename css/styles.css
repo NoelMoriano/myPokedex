@@ -510,6 +510,42 @@ body {
   box-shadow: 0 0 0 10px black;
   animation: blink 0.8s infinite linear;
 }
+
+.container-stats {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 1060px) {
+  .container-stats {
+    grid-template-columns: 1fr;
+    grid-row-gap: 2rem;
+  }
+}
+
+.container-chart {
+  margin: auto;
+  width: 30em;
+  padding: 1rem;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgb(255 255 255 / 60%) 0%,
+    rgb(255 255 255 / 0%) 52%,
+    rgb(255 255 255 / 0%) 100%
+  );
+}
+
+@media (max-width: 768px) {
+  .container-chart {
+    margin: auto;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.container-evolutions {
+  padding: 1rem;
+}
 /* Animation */
 @keyframes blink {
   from {
