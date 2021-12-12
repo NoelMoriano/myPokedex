@@ -161,9 +161,24 @@ const themeDefault = (theme = "light") => {
 };
 
 const speechVoice = (pokemonName, pokemonDescription) => {
-  let utterance = new SpeechSynthesisUtterance(
+  speech(
+    pokemonDescription.lang,
     `${pokemonName}. ${pokemonDescription.description}`
   );
-  utterance.lang = pokemonDescription.lang.toString();
+};
+
+const speech = (lang, description) => {
+  const elementSpeech = document.querySelector("#item-speech");
+
+  elementSpeech.classList.add("animate-speech");
+
+  let utterance = new SpeechSynthesisUtterance(description);
+
+  utterance.lang = lang.toString();
+
   speechSynthesis.speak(utterance);
+
+  utterance.addEventListener("end", () =>
+    elementSpeech.classList.remove("animate-speech")
+  );
 };
