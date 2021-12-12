@@ -159,3 +159,11 @@ const themeDefault = (theme = "light") => {
     elementIconTheme.src = "./images/moon.png";
   }
 };
+
+const speechVoice = (pokemonName, pokemonDescription) => {
+  let utterance = new SpeechSynthesisUtterance(
+    `${pokemonName}. ${pokemonDescription.description}`
+  );
+  utterance.lang = pokemonDescription.lang.toString();
+  speechSynthesis.speak(utterance);
+};

@@ -69,9 +69,17 @@ const getPokemon = async () => {
     const descriptionES = getDescription(pokemon, "es");
 
     if (descriptionES || descriptionEN) {
-      elementDescriptionPokemon.textContent = descriptionES
-        ? descriptionES
-        : descriptionEN;
+      const descriptionPokemon = descriptionES
+        ? { lang: "es", description: descriptionES }
+        : { lang: "en", description: descriptionEN };
+
+      elementDescriptionPokemon.textContent = descriptionPokemon.description;
+
+      elementImagePokemon.addEventListener("click", () => {
+        speechVoice(pokemon.name, descriptionPokemon);
+      });
+
+      speechVoice(pokemon.name, descriptionPokemon);
     }
 
     //SET POKEMON TYPES
