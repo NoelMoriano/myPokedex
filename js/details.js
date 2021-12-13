@@ -14,6 +14,8 @@ const elementContainerEvolutions = document.querySelector(
 );
 const elementListEvolutions = document.querySelector("#list-evolutions");
 
+const elementSpeech = document.querySelector("#item-speech");
+
 //GET DATA FROM URL
 const pokemonId = getParams("id");
 
@@ -76,6 +78,10 @@ const getPokemon = async () => {
       elementDescriptionPokemon.textContent = descriptionPokemon.description;
 
       elementImagePokemon.addEventListener("click", () => {
+        speechVoice(pokemon.name, descriptionPokemon);
+      });
+
+      elementSpeech.addEventListener("click", () => {
         speechVoice(pokemon.name, descriptionPokemon);
       });
 
@@ -257,4 +263,4 @@ const setBackgroundBody = (pokemonTypes) => {
 
 const getStatsForChart = (stats) => stats.map((stat) => stat.base_stat);
 
-getPokemon();
+window.addEventListener("load", () => getPokemon());

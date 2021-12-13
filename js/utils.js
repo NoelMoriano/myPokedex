@@ -179,6 +179,6 @@ const speech = (lang, description) => {
   speechSynthesis.speak(utterance);
 
   utterance.addEventListener("end", () =>
-    elementSpeech.classList.remove("animate-speech")
+    elementSpeech.classList.remove("elementSpeech")
   );
 };
