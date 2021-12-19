@@ -76,6 +76,7 @@ body {
   text-align: center;
   border: none;
   border-radius: 7rem;
+  z-index: 999;
 }
 
 .wrapper-preloader .item-omit-preloader:hover {
@@ -445,6 +446,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+@media print {
+  /***display none*****/
+  .container-header,
+  .wrapper-pokemon-capture {
+    display: none;
+  }
 }
 
 .wrapper-go-back .item-go-back {

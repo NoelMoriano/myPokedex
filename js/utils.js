@@ -174,11 +174,19 @@ const speech = (lang, description) => {
 
   let utterance = new SpeechSynthesisUtterance(description);
 
+  console.log("utterance>", utterance);
+
   utterance.lang = lang.toString();
+  utterance.rate = -2;
+  utterance.volume = 1;
 
   speechSynthesis.speak(utterance);
 
-  utterance.addEventListener("end", () =>
-    elementSpeech.classList.remove("animate-speech")
-  );
+  utterance.addEventListener("end", (e) => {
+    elementSpeech.classList.remove("animate-speech");
+  });
+
+  utterance.addEventListener("onstart", (e) => {
+    console.log("e->", e);
+  });
 };
