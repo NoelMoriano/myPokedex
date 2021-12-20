@@ -177,16 +177,27 @@ const speech = (lang, description) => {
   console.log("utterance>", utterance);
 
   utterance.lang = lang.toString();
-  utterance.rate = -2;
   utterance.volume = 1;
 
   speechSynthesis.speak(utterance);
 
-  utterance.addEventListener("end", (e) => {
-    elementSpeech.classList.remove("animate-speech");
+  utterance.addEventListener("pause", (e) => {
+    console.log("pause->", e);
   });
 
-  utterance.addEventListener("onstart", (e) => {
-    console.log("e->", e);
+  utterance.addEventListener("resume", (e) => {
+    console.log("resume->", e);
+  });
+
+  utterance.addEventListener("error", (e) => {
+    console.log("error->", e);
+  });
+
+  utterance.addEventListener("boundary", (e) => {
+    console.log("boundary->", e);
+  });
+
+  utterance.addEventListener("end", (e) => {
+    elementSpeech.classList.remove("animate-speech");
   });
 };

@@ -451,7 +451,8 @@ body {
 @media print {
   /***display none*****/
   .container-header,
-  .wrapper-pokemon-capture {
+  .wrapper-pokemon-capture,
+  .wrapper-icons-pagination {
     display: none;
   }
 }
@@ -498,8 +499,8 @@ body {
 }
 
 .animate-speech {
-  -webkit-animation: flash infinite 1s;
-  animation: flashBg infinite 0.8s;
+  -webkit-animation: flash infinite 0.7s;
+  animation: flashBg infinite 0.7s;
 }
 
 @-webkit-keyframes flashBg {
