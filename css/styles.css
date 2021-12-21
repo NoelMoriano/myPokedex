@@ -324,6 +324,10 @@ body {
   z-index: -1;
 }
 
+.wrapper-pokemon-information {
+  width: 80%;
+}
+
 .card-pokemon-detail .card-title {
   text-transform: capitalize;
 }
@@ -382,6 +386,9 @@ body {
   .wrapper-image-detail .img-pokemon {
     width: 15em;
     margin-bottom: -0.5rem;
+  }
+  .wrapper-pokemon-information {
+    width: 100%;
   }
 }
 

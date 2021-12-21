@@ -15,6 +15,7 @@ const elementContainerEvolutions = document.querySelector(
 const elementListEvolutions = document.querySelector("#list-evolutions");
 
 const elementSpeech = document.querySelector("#item-speech");
+const elementLoadingSkeleton = document.querySelector("#loading-skeleton");
 
 //GET DATA FROM URL
 const pokemonId = getParams("id");
@@ -33,7 +34,9 @@ const getPokemon = async () => {
       elementImagePokemon.src = "./images/pokemon-no-found.png";
       elementImagePokemon.style.width = "10em";
       elementCardPokemonDetail.innerHTML = `<br/><h4>Lo sentimos no se encontro el pokemon...</h4>`;
-      elementImagePokemon.classList.remove("none");
+      addClassName(elementLoadingSkeleton, "none");
+      removeClassName(elementImagePokemon, "none");
+      removeClassName(elementCardPokemonDetail, "none");
       return loadingPokemon();
     }
 
@@ -53,10 +56,14 @@ const getPokemon = async () => {
           "large",
           localStorage.getItem("imageType")
         );
-        elementImagePokemon.classList.remove("none");
+
+        removeClassName(elementImagePokemon, "none");
+        removeClassName(elementCardPokemonDetail, "none");
+        addClassName(elementLoadingSkeleton, "none");
       } else {
         elementImagePokemon.src = "./images/pokeball2.png";
-        elementImagePokemon.classList.remove("none");
+        removeClassName(elementImagePokemon, "none");
+        addClassName(elementLoadingSkeleton, "none");
       }
 
       loadingPokemon();

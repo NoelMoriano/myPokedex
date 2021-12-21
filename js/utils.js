@@ -172,8 +172,6 @@ const speech = (lang, description) => {
 
   const utterance = new SpeechSynthesisUtterance(description);
 
-  console.log("utterance>", utterance);
-
   utterance.lang = lang.toString();
   utterance.volume = 1;
 
@@ -187,3 +185,7 @@ const speech = (lang, description) => {
     elementSpeech.classList.remove("animate-speech");
   });
 };
+
+const addClassName = (element, className) => element.classList.add(className);
+const removeClassName = (element, className) =>
+  element.classList.remove(className);
