@@ -170,9 +170,7 @@ const speechVoice = (pokemonName, pokemonDescription) => {
 const speech = (lang, description) => {
   const elementSpeech = document.querySelector("#item-speech");
 
-  elementSpeech.classList.add("animate-speech");
-
-  let utterance = new SpeechSynthesisUtterance(description);
+  const utterance = new SpeechSynthesisUtterance(description);
 
   console.log("utterance>", utterance);
 
@@ -181,23 +179,11 @@ const speech = (lang, description) => {
 
   speechSynthesis.speak(utterance);
 
-  utterance.addEventListener("pause", (e) => {
-    console.log("pause->", e);
+  utterance.addEventListener("start", () => {
+    elementSpeech.classList.add("animate-speech");
   });
 
-  utterance.addEventListener("resume", (e) => {
-    console.log("resume->", e);
-  });
-
-  utterance.addEventListener("error", (e) => {
-    console.log("error->", e);
-  });
-
-  utterance.addEventListener("boundary", (e) => {
-    console.log("boundary->", e);
-  });
-
-  utterance.addEventListener("end", (e) => {
+  utterance.addEventListener("end", () => {
     elementSpeech.classList.remove("animate-speech");
   });
 };

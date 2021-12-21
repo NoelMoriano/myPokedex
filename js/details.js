@@ -23,6 +23,8 @@ let EVOLUTIONS_POKEMONS = [];
 
 const getPokemon = async () => {
   try {
+    const synth = window.speechSynthesis;
+
     //FETCH POKEMON
     const pokemon = await fetchPokemon(`${config.apiUrl}/pokemon/${pokemonId}`);
 
@@ -34,6 +36,8 @@ const getPokemon = async () => {
       elementImagePokemon.classList.remove("none");
       return loadingPokemon();
     }
+
+    synth.cancel();
 
     //SET IMAGE POKEMON
     setTimeout(() => {
