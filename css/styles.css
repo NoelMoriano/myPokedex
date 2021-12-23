@@ -76,7 +76,7 @@ body {
   text-align: center;
   border: none;
   border-radius: 7rem;
-  z-index: 999;
+  z-index: 9999;
 }
 
 .wrapper-preloader .item-omit-preloader:hover {
@@ -330,6 +330,19 @@ body {
 
 .card-pokemon-detail .card-title {
   text-transform: capitalize;
+}
+
+.card-pokemon-detail .card-title .icon-volumen-up {
+  font-size: 0.8em;
+  cursor: pointer;
+  color: #00b400;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-pokemon-detail .card-title .icon-volumen-up:hover {
+  color: #03cc03;
+  font-size: 0.9em;
+  transition: all 0.2s ease-in-out;
 }
 
 .card-pokemon-detail .detail-type-pokemon {

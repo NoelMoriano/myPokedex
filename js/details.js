@@ -29,34 +29,23 @@ const getPokemon = async () => {
     //FETCH POKEMON
     const pokemon = await fetchPokemon(`${config.apiUrl}/pokemon/${pokemonId}`);
 
-    //VALIDATE POKEMON exits
+    //VALIDATE POKEMON no exits
     if (!pokemon) {
-      elementImagePokemon.src = "./images/pokemon-no-found.png";
-      elementImagePokemon.style.width = "10em";
-      elementCardPokemonDetail.innerHTML = `<br/><h4>Lo sentimos no se encontro el pokemon...</h4>`;
-      addClassName(elementLoadingSkeleton, "none");
-      removeClassName(elementImagePokemon, "none");
-      removeClassName(elementCardPokemonDetail, "none");
-      return loadingPokemon();
+      return pokemonNoFount();
     }
 
     synth.cancel();
 
+    const imagePokemon_ = getImagePokemon(
+      pokemon.detail,
+      "large",
+      localStorage.getItem("imageType")
+    );
+
     //SET IMAGE POKEMON
     setTimeout(() => {
-      if (
-        getImagePokemon(
-          pokemon.detail,
-          "large",
-          localStorage.getItem("imageType")
-        )
-      ) {
-        elementImagePokemon.src = getImagePokemon(
-          pokemon.detail,
-          "large",
-          localStorage.getItem("imageType")
-        );
-
+      if (imagePokemon_) {
+        elementImagePokemon.src = imagePokemon_;
         removeClassName(elementImagePokemon, "none");
         removeClassName(elementCardPokemonDetail, "none");
         addClassName(elementLoadingSkeleton, "none");
@@ -74,30 +63,7 @@ const getPokemon = async () => {
     }
 
     //SET NAME POKEMON
-    elementNamePokemon.textContent = `${pokemon.name} - #${pokemon.detail.order}`;
-
-    //GET AND SET DESCRIPTION POKEMON
-    const descriptionEN = getDescription(pokemon, "en");
-
-    const descriptionES = getDescription(pokemon, "es");
-
-    if (descriptionES || descriptionEN) {
-      const descriptionPokemon = descriptionES
-        ? { lang: "es", description: descriptionES }
-        : { lang: "en", description: descriptionEN };
-
-      elementDescriptionPokemon.textContent = descriptionPokemon.description;
-
-      elementImagePokemon.addEventListener("click", () => {
-        speechVoice(pokemon.name, descriptionPokemon);
-      });
-
-      elementSpeech.addEventListener("click", () => {
-        speechVoice(pokemon.name, descriptionPokemon);
-      });
-
-      speechVoice(pokemon.name, descriptionPokemon);
-    }
+    elementNamePokemon.innerHTML = `${pokemon.name} - #${pokemon.detail.order} <i class="fas fa-volume-up icon-volumen-up" id="volumen-up"></i>`;
 
     //SET POKEMON TYPES
     elementTypePokemon.innerHTML += mapRenderPokemonType(
@@ -111,6 +77,35 @@ const getPokemon = async () => {
       getStatsForChart(pokemon.detail.stats),
       pokemon.detail.types[0].type
     );
+
+    //GET AND SET DESCRIPTION POKEMON
+    const descriptionEN = getDescription(pokemon, "en");
+
+    const descriptionES = getDescription(pokemon, "es");
+
+    if (descriptionES || descriptionEN) {
+      const elementVolumenUp = document.querySelector("#volumen-up");
+
+      const descriptionPokemon = descriptionES
+        ? { lang: "es", description: descriptionES }
+        : { lang: "en", description: descriptionEN };
+
+      elementDescriptionPokemon.textContent = descriptionPokemon.description;
+
+      elementVolumenUp.addEventListener("click", () =>
+        speechVoice(pokemon.name, descriptionPokemon)
+      );
+
+      elementImagePokemon.addEventListener("click", () =>
+        speechVoice(pokemon.name, descriptionPokemon)
+      );
+
+      elementSpeech.addEventListener("click", () =>
+        speechVoice(pokemon.name, descriptionPokemon)
+      );
+
+      speechVoice(pokemon.name, descriptionPokemon);
+    }
 
     //VALIDATE AND SET EVOLUTIONS POKEMON
     if (
@@ -167,6 +162,9 @@ const getPokemon = async () => {
     setBackgroundBody(pokemonsTypes);
   } catch (e) {
     console.error("ErrorDetailsPokemon: ", e);
+    erroServer();
+  } finally {
+    loadingPokemon();
   }
 };
 
@@ -273,5 +271,23 @@ const setBackgroundBody = (pokemonTypes) => {
 };
 
 const getStatsForChart = (stats) => stats.map((stat) => stat.base_stat);
+
+const pokemonNoFount = () => {
+  elementImagePokemon.src = "./images/pokemon-no-found.png";
+  elementImagePokemon.style.width = "10em";
+  elementCardPokemonDetail.innerHTML = `<br/><h4>Lo sentimos no se encontro el pokemon...</h4><a href="../index.html">Regresar a inicio</a><br/>`;
+  addClassName(elementLoadingSkeleton, "none");
+  removeClassName(elementImagePokemon, "none");
+  removeClassName(elementCardPokemonDetail, "none");
+};
+
+const erroServer = () => {
+  elementImagePokemon.src = "./images/500.png";
+  elementImagePokemon.style.width = "10em";
+  elementCardPokemonDetail.innerHTML = `<br/><h4>Lo sentimos tenemos problemas con el servidor, intentelo mas tarde...</h4>`;
+  addClassName(elementLoadingSkeleton, "none");
+  removeClassName(elementImagePokemon, "none");
+  removeClassName(elementCardPokemonDetail, "none");
+};
 
 window.addEventListener("load", () => getPokemon());
