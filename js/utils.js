@@ -187,5 +187,6 @@ const speech = (lang, description) => {
 };
 
 const addClassName = (element, className) => element.classList.add(className);
+
 const removeClassName = (element, className) =>
   element.classList.remove(className);

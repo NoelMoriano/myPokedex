@@ -163,8 +163,6 @@ const getPokemon = async () => {
   } catch (e) {
     console.error("ErrorDetailsPokemon: ", e);
     erroServer();
-  } finally {
-    loadingPokemon();
   }
 };
 
@@ -279,6 +277,7 @@ const pokemonNoFount = () => {
   addClassName(elementLoadingSkeleton, "none");
   removeClassName(elementImagePokemon, "none");
   removeClassName(elementCardPokemonDetail, "none");
+  loadingPokemon();
 };
 
 const erroServer = () => {
@@ -288,6 +287,7 @@ const erroServer = () => {
   addClassName(elementLoadingSkeleton, "none");
   removeClassName(elementImagePokemon, "none");
   removeClassName(elementCardPokemonDetail, "none");
+  loadingPokemon();
 };
 
 window.addEventListener("load", () => getPokemon());
