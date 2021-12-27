@@ -50,7 +50,7 @@ const mapRenderStats = (elementRender, stats) => {
 
     return (elementRender.innerHTML += `<div class="item-stat">
   <li class="list-group-item bg-primary-custom">
-    ${statConfig_.name}:
+    <span class="title-stat">${statConfig_.name}:</span>  
     <div class="progress">
       <div
         class="progress-bar ${statConfig_.type_progress}"

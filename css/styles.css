@@ -332,6 +332,10 @@ body {
   text-transform: capitalize;
 }
 
+.card-pokemon-detail .card-description {
+  line-height: 1.2rem;
+}
+
 .card-pokemon-detail .card-title .icon-volumen-up {
   font-size: 0.8em;
   cursor: pointer;
@@ -366,8 +370,9 @@ body {
   color: black;
 }
 
-.element-link {
+.wrapper-pokemon-capture .element-link {
   cursor: pointer;
+  display: inline-block;
 }
 
 .wrapper-evolutions .name-pokemon {
@@ -405,12 +410,20 @@ body {
   }
 }
 
+.list-stats .title-stat {
+  font-size: 0.85em;
+}
+
+.list-stats .progress {
+  border: 1px solid rgb(0, 0, 0, 0.22);
+}
+
 .list-stats div li {
   cursor: inherit;
 }
 
 .list-stats .item-stat {
-  min-width: 170px;
+  min-width: 160px;
   width: auto;
 }
 
