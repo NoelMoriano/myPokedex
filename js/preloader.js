@@ -34,11 +34,11 @@ window.addEventListener("load", () => {
 
   elementOmitPreloader.addEventListener("click", () => {
     elementPreloaderContainer.classList.add("none");
+    window.scrollTo(0, 0);
   });
 
   setTimeout(() => {
     elementPreloaderContainer.classList.add("none");
+    window.scrollTo(0, 0);
   }, 9000);
-
-  window.scrollTo(0, 0);
 });
