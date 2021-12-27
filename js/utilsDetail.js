@@ -105,7 +105,7 @@ const getStatsForChart = (stats) => stats.map((stat) => stat.base_stat);
 const pokemonNoFount = () => {
   elementImagePokemon.src = "./images/pokemon-no-found.png";
   elementImagePokemon.style.width = "10em";
-  elementCardPokemonDetail.innerHTML = `<br/><h4>Lo sentimos no se encontro el pokemon...</h4><a href="../index.html">Regresar a inicio</a><br/>`;
+  elementCardPokemonDetail.innerHTML = `<br/><h4>Lo sentimos no se encontro el pokemon...</h4><a href="../myPokedex/index.html">Regresar a inicio</a><br/>`;
   addClassName(elementLoadingSkeleton, "none");
   removeClassName(elementImagePokemon, "none");
   removeClassName(elementCardPokemonDetail, "none");
@@ -115,7 +115,7 @@ const pokemonNoFount = () => {
 const erroServer = () => {
   elementImagePokemon.src = "./images/500.png";
   elementImagePokemon.style.width = "10em";
-  elementCardPokemonDetail.innerHTML = `<br/><h4>Lo sentimos tenemos problemas con el servidor, intentelo mas tarde...</h4>`;
+  elementCardPokemonDetail.innerHTML = `<br/><h4>Lo sentimos tenemos problemas con el servidor, intentelo mas tarde...</h4><a href="../myPokedex/index.html">Regresar a inicio</a><br/>`;
   addClassName(elementLoadingSkeleton, "none");
   removeClassName(elementImagePokemon, "none");
   removeClassName(elementCardPokemonDetail, "none");
