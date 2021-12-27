@@ -21,7 +21,7 @@ const getAllEvolutionsPokemon = (evolutions) => {
 
 const setEvolutionElement = (pokemon) => `
 <div class="item-img-evolution">
-<a href="../myPokedex/details.html?id=${pokemon.id}" class="text-center">
+<a href="../myPokedex/detail.html?id=${pokemon.id}" class="text-center">
   <img
     class="img-pokemon-evolution img-responsive"
     src="${getImagePokemon(
