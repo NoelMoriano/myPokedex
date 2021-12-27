@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/skeleton.css" />
     <script src="./js/config.js"></script>
-    <!--/Open Grath/--->
+    <!--/Open Graph/--->
     <meta property="og:title" content="MyPokedex" />
     <meta property="og:description" content="MyPokedex: html + css + js" />
-    <meta property="og:image" content="./images/pokeball.png" />
-    <link rel="icon" type="image/png" href="./images/pokeball.png" />
+    <meta property="og:image" content="./images/pokeball-200x190.png" />
+    <link rel="icon" type="image/png" href="./images/pokeball-200x190.png" />
   </head>
   <body>
-    <img src="./images/aqua_maker.png" alt="icon pokemon" class="image-aqua-marker-detail"/>
+    <img src="./images/aqua_maker.png" loading="lazy" alt="icon pokemon" class="image-aqua-marker-detail"/>
     <div class="container-fluid text-center p-3 bg-danger container-header">
       <div class="row">
         <div class="col-3 wrapper-go-back">
@@ -50,6 +50,7 @@
           class="img-responsive img-pokemon none"
           id="detail-image-pokemon"
           src="./images/pokeball2.png"
+          loading="lazy"
           alt="pokemon"
         />
           <div class="wrapper_pokeball_loading visible" id="wrapper-loading-pokemon">
@@ -155,7 +156,8 @@
     <script src="./js/utils.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/myChartStats.js"></script>
-    <script src="./js/details.js"></script>
+    <script src="./js/detail.js"></script>
+    <script src="./js/utilsDetail.js"></script>
     <script src="./js/pagination.js"></script>
     
   </body>

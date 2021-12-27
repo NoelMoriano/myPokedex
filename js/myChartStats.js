@@ -41,5 +41,5 @@ const setDataChart = (dataStats, colorType) => {
     },
   };
 
-  const myChart = new Chart(elementChart, configChart);
+  new Chart(elementChart, configChart);
 };

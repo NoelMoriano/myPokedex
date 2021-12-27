@@ -619,6 +619,10 @@ body {
   }
 }
 
+#myChart {
+  width: 100% !important;
+}
+
 .container-chart {
   margin: auto;
   width: 30em;
@@ -651,8 +655,9 @@ body {
     background: #e74c3c;
   }
 }
+
 @keyframes shake {
-  0 {
+  0% {
     transform: translate(0, 0) rotate(0);
   }
   20% {
@@ -671,6 +676,7 @@ body {
     transform: translate(0, 0) rotate(0);
   }
 }
+
 @keyframes fall {
   0% {
     top: -200px;

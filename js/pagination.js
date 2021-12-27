@@ -16,11 +16,11 @@ document.addEventListener("keydown", (e) => {
 });
 
 const prevPokemon = () =>
-  (location.href = `../myPokedex/details.html?id=${
+  (location.href = `../myPokedex/detail.html?id=${
     +pokemonId <= 1 ? config.maxPokeApipokemons : +pokemonId - 1
   }`);
 
 const nextPokemon = () =>
-  (location.href = `../myPokedex/details.html?id=${
+  (location.href = `../myPokedex/detail.html?id=${
     +pokemonId >= config.maxPokeApipokemons ? 1 : +pokemonId + 1
   }`);

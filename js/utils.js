@@ -68,20 +68,21 @@ const renderPokemonInfo = (pokemonInfo) => {
         )}">
         <img class="pokeball-icon-img" src="./images/pokeball-icon.jpeg"/> 
           <div class="m-3">
-            <a href="../myPokedex/details.html?id=${pokemonInfo.detail.id}"
+            <a href="../myPokedex/detail.html?id=${pokemonInfo.detail.id}"
               ><img
                 src="${getImagePokemon(
                   pokemonInfo.detail,
                   "small",
                   localStorage.getItem("imageType")
                 )}"
+                loading="lazy"
                 alt="pokemon"
                 class="img-pokemon-list"
                 id="img-pokemon-${pokemonInfo.id}"
             /></a>
           </div>
           <div class="description">
-          <a href="../myPokedex/details.html?id=${pokemonInfo.detail.id}"
+          <a href="../myPokedex/detail.html?id=${pokemonInfo.detail.id}"
           > <h3>${pokemonInfo.detail.name}</h3></a>
             <div class="wrapper-pokemon-types">
             ${mapRenderPokemonType(pokemonInfo.detail.types)}
