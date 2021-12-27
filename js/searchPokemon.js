@@ -45,6 +45,7 @@ formSearch.addEventListener("submit", async (e) => {
       elementAmountPokemons.textContent = 1;
     } else {
       initialApp();
+      elementListPokemons.style.display = "grid";
     }
   } catch (e) {
     console.error(e);
