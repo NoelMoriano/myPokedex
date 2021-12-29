@@ -37,7 +37,7 @@ const initialApp = async (urlPagination) => {
     //Order by id
     const viewPokemons = resultPokemonsWithInfo
       .filter((pokemon) => pokemon)
-      .sort((a, b) => a.id - b.id);
+      .sort((a, b) => a.order - b.order);
 
     //Render info pokemon
     viewPokemons.map((pokemon) => {

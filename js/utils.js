@@ -81,7 +81,7 @@ const renderPokemonInfo = (pokemonInfo) => {
                 id="img-pokemon-${pokemonInfo.id}"
             /></a>
           </div>
-          <div class="description">
+          <div class="description">          
           <a href="../myPokedex/detail.html?id=${pokemonInfo.detail.id}"
           > <h3>${pokemonInfo.detail.name}</h3></a>
             <div class="wrapper-pokemon-types">

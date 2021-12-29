@@ -39,6 +39,5 @@ window.addEventListener("load", () => {
 
   setTimeout(() => {
     elementPreloaderContainer.classList.add("none");
-    window.scrollTo(0, 0);
   }, 9000);
 });

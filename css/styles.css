@@ -221,10 +221,9 @@ body {
 }
 
 .item-list {
-  cursor: pointer;
   border-radius: 1.3rem;
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 7px 20px;
   overflow: hidden;
   position: relative;
 }
@@ -242,6 +241,7 @@ body {
   opacity: 0.2;
   transition: all ease-in-out 0.3s;
   transform: scale(1.1) translate(1rem, 1rem);
+  cursor: pointer;
 }
 
 .item-list .img-pokemon-list {
@@ -260,9 +260,11 @@ body {
 
 .item-list a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .item-list a h3 {
+  cursor: pointer;
   text-transform: capitalize;
   font-size: 1.7em;
   color: white;
