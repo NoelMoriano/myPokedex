@@ -3,6 +3,11 @@ window.addEventListener("load", () => {
     "#preloader-container"
   );
 
+  if (localStorage.getItem("preloader") >= 2) {
+    elementPreloaderContainer.classList.add("none");
+    window.scrollTo(0, 0);
+  }
+
   //change theme
   const theme = localStorage.getItem("theme");
 
@@ -13,21 +18,53 @@ window.addEventListener("load", () => {
   }
 
   // Change image type
-  const imageType = localStorage.getItem("imageType");
+  switch (localStorage.getItem("imageType")) {
+    case "tipo1":
+      {
+        elementBtnRadio1.setAttribute("checked", true);
+        [elementBtnRadio2, elementBtnRadio3, elementBtnRadio4].forEach(
+          (element) => element.removeAttribute("checked", false)
+        );
+      }
+      break;
+    case "tipo2":
+      {
+        elementBtnRadio2.setAttribute("checked", true);
+        [elementBtnRadio1, elementBtnRadio3, elementBtnRadio4].forEach(
+          (element) => element.removeAttribute("checked", false)
+        );
+      }
+      break;
+    case "tipo3":
+      {
+        elementBtnRadio3.setAttribute("checked", true);
+        [elementBtnRadio1, elementBtnRadio2, elementBtnRadio4].forEach(
+          (element) => element.removeAttribute("checked", false)
+        );
+      }
+      break;
+    case "tipo4":
+      {
+        elementBtnRadio4.setAttribute("checked", true);
+        [elementBtnRadio1, elementBtnRadio2, elementBtnRadio3].forEach(
+          (element) => element.removeAttribute("checked", false)
+        );
+      }
+      break;
+    default: {
+      localStorage.setItem("imageType", "tipo4");
+      elementBtnRadio4.setAttribute("checked", true);
 
-  if (imageType) {
-    if (imageType === "2d") {
-      elementBtnRadio1.setAttribute("checked", true);
-      elementBtnRadio2.removeAttribute("checked");
-    } else {
-      elementBtnRadio2.setAttribute("checked", true);
-      elementBtnRadio1.removeAttribute("checked");
+      [elementBtnRadio1, elementBtnRadio2, elementBtnRadio3].forEach(
+        (element) => element.removeAttribute("checked", false)
+      );
     }
-  } else {
-    localStorage.setItem("imageType", "3d");
-    elementBtnRadio1.removeAttribute("checked");
-    elementBtnRadio2.setAttribute("checked", true);
   }
+
+  localStorage.setItem(
+    "preloader",
+    (+localStorage.getItem("preloader") || 0) + 1
+  );
 
   // onclick omit
   const elementOmitPreloader = document.querySelector("#omit-preloader");

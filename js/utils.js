@@ -118,17 +118,25 @@ const getDescription = (pokemon, languageCode) => {
 };
 
 //GET IMAGE POKEMON
-const getImagePokemon = (pokemon, sizeImage = "small", imageType = "3d") => {
+const getImagePokemon = (pokemon, sizeImage = "small", imageType = "tipo4") => {
   if (!pokemon) return null;
 
-  let serverImageApi = config.serverSerebi;
-
-  if (imageType) {
-    serverImageApi =
-      imageType === "2d" ? config.serverPokemonPuntoCom : config.serverSerebi;
+  switch (imageType) {
+    case "tipo1":
+      return pokemon.sprites.other["official-artwork"].front_default;
+    case "tipo2":
+      return pokemon.sprites.other.dream_world.front_default;
+    case "tipo3":
+      return pokemon.sprites.other.home.front_default;
+    case "tipo4":
+      return getImageServerSerebi(pokemon, sizeImage);
+    default:
+      return pokemon.sprites.front_default;
   }
+};
 
-  if (pokemon.id > serverImageApi["maxPokemons"]) {
+const getImageServerSerebi = (pokemon, sizeImage) => {
+  if (pokemon.id > config.serverSerebi["maxPokemons"]) {
     return pokemon.sprites.front_default
       ? pokemon.sprites.front_default
       : "./images/pokeball2.png";
@@ -136,7 +144,7 @@ const getImagePokemon = (pokemon, sizeImage = "small", imageType = "3d") => {
 
   const _sizeImage = sizeImage === "small" ? "urlImgSmall" : "urlImgLarge";
 
-  const urlImageExtended = serverImageApi[_sizeImage];
+  const urlImageExtended = config.serverSerebi[_sizeImage];
 
   if (pokemon.id < 10) {
     return `${urlImageExtended}/00${pokemon.id}.png`;
