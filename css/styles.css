@@ -246,6 +246,8 @@ body {
 
 .item-list .img-pokemon-list {
   width: 130px;
+  height: 130px;
+  object-fit: contain;
   -webkit-filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.7));
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.7));
   -webkit-filter: drop-shadow(0 1px 3px hsla(0, 0%, 100%, 0.9));
