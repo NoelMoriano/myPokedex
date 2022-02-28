@@ -393,7 +393,7 @@ body {
 
 .wrapper-image-detail .img-pokemon {
   width: 17em;
-  height: auto;
+  height: 17em;
   object-fit: contain;
   -webkit-filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));

@@ -121,22 +121,24 @@ const getDescription = (pokemon, languageCode) => {
 const getImagePokemon = (pokemon, sizeImage = "small", imageType = "tipo4") => {
   if (!pokemon) return null;
 
+  const defaultOption1Image =
+    pokemon.sprites.other["official-artwork"].front_default;
+
   switch (imageType) {
     case "tipo1":
-      return (
-        pokemon.sprites.other["official-artwork"].front_default ||
-        pokemon.sprites.front_default
-      );
+      return defaultOption1Image || pokemon.sprites.front_default;
     case "tipo2":
-      return (
-        pokemon.sprites.other.dream_world.front_default ||
-        pokemon.sprites.front_default
-      );
+      return pokemon.sprites.other.dream_world.front_default
+        ? pokemon.sprites.other.dream_world.front_default
+        : defaultOption1Image
+        ? defaultOption1Image
+        : pokemon.sprites.front_default;
     case "tipo3":
-      return (
-        pokemon.sprites.other.home.front_default ||
-        pokemon.sprites.front_default
-      );
+      return pokemon.sprites.other.home.front_default
+        ? pokemon.sprites.other.home.front_default
+        : defaultOption1Image
+        ? defaultOption1Image
+        : pokemon.sprites.front_default;
     case "tipo4":
       return getImageServerSerebi(pokemon, sizeImage);
     default:
@@ -145,8 +147,13 @@ const getImagePokemon = (pokemon, sizeImage = "small", imageType = "tipo4") => {
 };
 
 const getImageServerSerebi = (pokemon, sizeImage) => {
+  const defaultOption1Image =
+    pokemon.sprites.other["official-artwork"].front_default;
+
   if (pokemon.id > config.serverSerebi["maxPokemons"]) {
-    return pokemon.sprites.front_default
+    return defaultOption1Image
+      ? defaultOption1Image
+      : pokemon.sprites.front_default
       ? pokemon.sprites.front_default
       : "./images/pokeball2.png";
   }
