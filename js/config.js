@@ -1,6 +1,6 @@
 const config = {
   apiUrl: "https://pokeapi.co/api/v2",
-  maxPokeApipokemons: 10220,
+  maxPokeApipokemons: 10228,
   serverPokemonPuntoCom: {
     urlImgSmall: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail",
     urlImgLarge: "https://assets.pokemon.com/assets/cms2/img/pokedex/full",
