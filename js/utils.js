@@ -123,11 +123,20 @@ const getImagePokemon = (pokemon, sizeImage = "small", imageType = "tipo4") => {
 
   switch (imageType) {
     case "tipo1":
-      return pokemon.sprites.other["official-artwork"].front_default;
+      return (
+        pokemon.sprites.other["official-artwork"].front_default ||
+        pokemon.sprites.front_default
+      );
     case "tipo2":
-      return pokemon.sprites.other.dream_world.front_default;
+      return (
+        pokemon.sprites.other.dream_world.front_default ||
+        pokemon.sprites.front_default
+      );
     case "tipo3":
-      return pokemon.sprites.other.home.front_default;
+      return (
+        pokemon.sprites.other.home.front_default ||
+        pokemon.sprites.front_default
+      );
     case "tipo4":
       return getImageServerSerebi(pokemon, sizeImage);
     default:
