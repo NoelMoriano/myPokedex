@@ -170,9 +170,9 @@ body {
 }
 
 .wrapper-amount-pokemons {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-end; */
   margin: 1.5rem auto 1rem auto;
   padding: 0 1.5rem;
   color: #9b9b9b;
